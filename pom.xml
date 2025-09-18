@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- 你自己的坐标（随意，但建议与子模块一致的 groupId/version） -->
+  <groupId>com.cmp</groupId>
+  <artifactId>cmp-parent</artifactId>
+  <version>0.1.0</version>
+
+  <!-- 关键点：作为聚合器，不产出 jar，只管理/聚合下面这些子模块 -->
+  <packaging>pom</packaging>
+
+  <!-- 给所有模块共享的编译参数（子模块没继承也无所谓，保底用） -->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
+
+  <!-- 8 个子模块；名字必须是“子模块文件夹名” -->
+  <modules>
+    <module>cmp-shared-core</module>
+    <module>cmp-protocol</module>
+    <module>cmp-similarity</module>
+    <module>cmp-service</module>
+    <module>cmp-cloud-server</module>
+    <module>cmp-datasource-agent</module>
+    <module>cmp-client-sdk</module>
+    <module>cmp-client-cli</module>
+  </modules>
+</project>
