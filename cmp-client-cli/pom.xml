@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.cmp</groupId>
+  <artifactId>cmp-client-cli</artifactId>
+  <version>0.1.0</version>
+  <name>cmp-client-cli</name>
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>com.cmp</groupId>
+      <artifactId>cmp-client-sdk</artifactId>
+      <version>0.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.cmp</groupId>
+      <artifactId>cmp-shared-core</artifactId>
+      <version>0.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.cmp</groupId>
+      <artifactId>cmp-protocol</artifactId>
+      <version>0.1.0</version>
+    </dependency>
+    <!-- 为了本地演示 wiring：引用内存实现 -->
+    <dependency>
+      <groupId>com.cmp</groupId>
+      <artifactId>cmp-service</artifactId>
+      <version>0.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.cmp</groupId>
+      <artifactId>cmp-cloud-server</artifactId>
+      <version>0.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.cmp</groupId>
+      <artifactId>cmp-datasource-agent</artifactId>
+      <version>0.1.0</version>
+    </dependency>
+  </dependencies>
+</project>
