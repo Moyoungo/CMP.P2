@@ -14,6 +14,8 @@ import java.util.List;
 public final class StateChainBuilder {
     private StateChainBuilder() {}
 
+    private static final byte[] EMPTY = new byte[0]; // ConcurrentHashMap 不允许 null 值
+
     /** 只写入，不返回状态序列 */
     public static void writeChain(StateTableApi api, String sid, String ds, byte[] alpha, byte[] st0, int count){
         byte[] st = st0;
@@ -36,9 +38,9 @@ public final class StateChainBuilder {
 
             st = stNext;
         }
-        // 断点：最后一个 ST 的条目置空
+        // 断点：最后一个 ST 的条目不再给 sk。注意 ConcurrentHashMap 不能存 null，用空数组作哨兵。
         byte[] h1Last = HashUtil.H1(st);
-        api.put(new StateTableDTO.PutRequest(sid, ds, count, h1Last, null));
+        api.put(new StateTableDTO.PutRequest(sid, ds, count, h1Last, EMPTY));
     }
 
     /** 写入并返回包含 ST_0..ST_count 的状态序列（含起点与末尾断点后的最后状态） */
@@ -67,7 +69,7 @@ public final class StateChainBuilder {
             states.add(st);
         }
         byte[] h1Last = HashUtil.H1(st);
-        api.put(new StateTableDTO.PutRequest(sid, ds, count, h1Last, null)); // 断点
+        api.put(new StateTableDTO.PutRequest(sid, ds, count, h1Last, EMPTY)); // 断点用空数组标记
         return states; // 包含 ST_0..ST_count
     }
 }
