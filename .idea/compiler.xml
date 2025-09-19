@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="cmp-cloud-server" />
+        <module name="cmp-client-sdk" />
+        <module name="cmp-service" />
+        <module name="cmp-demo-cli" />
+        <module name="cmp-similarity" />
+        <module name="cmp-protocol" />
+        <module name="cmp-client-cli" />
+        <module name="cmp-datasource-agent" />
+        <module name="cmp-shared-core" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="cmp-demo-cli" options="" />
+      <module name="cmp-parent" options="" />
+    </option>
+  </component>
+</project>

@@ -1,4 +1,5 @@
 package com.cmp.client.cli;
+
 import com.cmp.core.crypto.HashUtil;
 import com.cmp.core.util.Bytes;
 import com.cmp.protocol.api.StateTableApi;
