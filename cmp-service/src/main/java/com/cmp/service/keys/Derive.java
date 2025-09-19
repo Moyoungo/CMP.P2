@@ -1,6 +1,7 @@
 package com.cmp.service.keys;
 
 import com.cmp.core.keys.Kdf;
+import java.nio.charset.StandardCharsets;
 
 /** 服务端派生的薄封装：复用 shared-core 的 Kdf */
 public final class Derive {
@@ -19,6 +20,7 @@ public final class Derive {
 
     /** α 仍可按合同个性化（用于状态链掩码） */
     public static byte[] alpha(byte[] kSrc, String sid, String ds, String clientId){
-        return com.cmp.core.crypto.HmacUtil.hmacSha256(kSrc, ("ALPHA|"+sid+"|"+ds+"|"+clientId).getBytes(java.nio.charset.StandardCharsets.UTF_8));
+        String label = "ALPHA|" + sid + "|" + ds + "|" + clientId;
+        return com.cmp.core.crypto.HmacUtil.hmacSha256(kSrc, label.getBytes(StandardCharsets.UTF_8));
     }
 }
